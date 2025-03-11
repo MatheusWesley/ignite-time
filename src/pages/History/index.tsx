@@ -7,44 +7,6 @@ import { CyclesContext } from "../../contexts/CyclesContext";
 export function History() {
   const { cycles } = useContext(CyclesContext)
 
-  // const history = [
-  //   {
-  //     id: 1,
-  //     task: "Estudar ReactJS",
-  //     duration: "25 minutos",
-  //     start: "Há cerca de 1 mês",
-  //     status: "Em andamento",
-  //   },
-  //   {
-  //     id: 2,
-  //     task: "Estudar JavaScript",
-  //     duration: "25 minutos",
-  //     start: "Há cerca de 1 mês",
-  //     status: "Concluído",
-  //   },
-  //   {
-  //     task: "Estudar TypeScript",
-  //     duration: "25 minutos",
-  //     start: "Há cerca de 1 mês",
-  //     status: "Em andamento",
-  //   },
-  //   {
-  //     id: 4,
-  //     task: "Estudar NodeJS",
-  //     duration: "25 minutos",
-  //     start: "Há cerca de 1 mês",
-  //     status: "Concluído",
-  //   },
-  //   {
-  //     id: 5,
-  //     task: "Estudar React Native",
-  //     duration: "25 minutos",
-  //     start: "Há cerca de 1 mês",
-  //     status: "Interrompido",
-  //   }
-  // ]
-
-
   return (
     <HistoryContainer>
       <h1>Meu histórico</h1>
@@ -63,7 +25,7 @@ export function History() {
               <tr key={cycle.id}>
                 <td>{cycle.task}</td>
                 <td>{cycle.minutesAmount} minutos</td>
-                <td>{formatDistanceToNow(cycle.startDate, {
+                <td>{formatDistanceToNow(new Date(cycle.startDate), {
                   addSuffix: true,
                   locale: ptBR,
                 })}
