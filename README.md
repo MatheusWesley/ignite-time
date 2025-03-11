@@ -15,5 +15,8 @@ Aprender mais sobre o Framework ReactJS fixando conceitos e fundamentos desta fe
   - useReducer
 - Styled Components
 - Tipagem com TypeScript
+- zod
+- hookform/resolvers
+- immer
 
 e muito mais...
