@@ -23,7 +23,6 @@ export function History() {
   //     status: "Concluído",
   //   },
   //   {
-  //     id: 3,
   //     task: "Estudar TypeScript",
   //     duration: "25 minutos",
   //     start: "Há cerca de 1 mês",
