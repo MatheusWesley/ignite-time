@@ -3,6 +3,10 @@ import { CountdownContainer, Separator } from "./styles";
 import { differenceInSeconds } from "date-fns";
 import { CyclesContext } from "../../../../contexts/CyclesContext";
 
+
+import beep from "../../../../assets/bip-irritable.mp3"
+import { toast } from "react-toastify";
+
 export function Countdown() {
   const {
     activeCycle,
@@ -11,6 +15,26 @@ export function Countdown() {
     markCurrentCycleAsFinished,
     setSecondsPassed
   } = useContext(CyclesContext);
+
+
+  useEffect(() => {
+    if ('Notification' in window && Notification.permission !== 'granted') {
+      Notification.requestPermission();
+    }
+  }, [])
+
+  function notification() {
+    const audio = new Audio(beep)
+    toast.success('Finalizado!!', {
+      onOpen: () => audio.play(),
+    })
+
+    if (Notification.permission === 'granted') {
+      new Notification('Ciclo Finalizado!', {
+        body: 'O ciclo foi concluído com sucesso.',
+      });
+    }
+  }
 
   const totalSeconds = activeCycle ? activeCycle.minutesAmount * 60 : 0;
 
@@ -28,6 +52,7 @@ export function Countdown() {
           markCurrentCycleAsFinished();
           setSecondsPassed(totalSeconds)
           clearInterval(interval);
+          notification()
         } else {
           setSecondsPassed(secondsDifference)
         }

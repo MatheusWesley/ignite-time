@@ -4,6 +4,7 @@ import { GlobalStyle } from "./styles/global";
 import { Router } from "./Router";
 import { BrowserRouter } from "react-router-dom";
 import { CyclesContextProvider } from "./contexts/CyclesContext";
+import { ToastContainer } from "react-toastify";
 
 export function App() {
   return (
@@ -13,6 +14,7 @@ export function App() {
           <Router />
         </CyclesContextProvider>
         <GlobalStyle />
+        <ToastContainer />
       </BrowserRouter>
     </ThemeProvider>
   )
