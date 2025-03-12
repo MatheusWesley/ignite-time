@@ -6,11 +6,46 @@ export const HistoryContainer = styled.main`
 
   display: flex;
   flex-direction: column;
+`
+
+export const HistoryHeader = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 
   h1 {
     font-size: 1.5rem;
     color: ${props => props.theme["gray-100"]}
   }
+
+  button {
+    max-height: 1rem;
+    border: 0;
+    padding: 1rem;
+    border-radius: 8px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    gap: 0.5rem;
+    font-size: 0.75rem;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    background-color: ${props => props.theme["gray-200"]};
+
+    &:not(:disabled):hover {
+      background-color: ${props => props.theme["gray-300"]};
+    }
+
+    &:disabled {
+      opacity: 0.7;
+      cursor: not-allowed; 
+    }
+  }
+
 `
 
 export const HistoryList = styled.div`

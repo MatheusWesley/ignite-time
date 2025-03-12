@@ -1,15 +1,23 @@
 import { useContext } from "react";
 import { formatDistanceToNow } from "date-fns";
 import { ptBR } from "date-fns/locale/pt-BR";
-import { HistoryContainer, HistoryList, Status } from "./styles";
+import { HistoryContainer, HistoryHeader, HistoryList, Status } from "./styles";
 import { CyclesContext } from "../../contexts/CyclesContext";
 
 export function History() {
   const { cycles } = useContext(CyclesContext)
 
+  function cleanHistoryCycles() {
+    localStorage.removeItem('@ignite-timer:cycles-state-1.0.0')
+    window.location.reload()
+  }
+
   return (
     <HistoryContainer>
-      <h1>Meu histórico</h1>
+      <HistoryHeader>
+        <h1>Meu histórico</h1>
+        <button onClick={cleanHistoryCycles} disabled={cycles.length === 0}>Limpar Histórico</button>
+      </HistoryHeader>
       <HistoryList>
         <table>
           <thead>
