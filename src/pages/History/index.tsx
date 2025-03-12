@@ -3,12 +3,15 @@ import { formatDistanceToNow } from "date-fns";
 import { ptBR } from "date-fns/locale/pt-BR";
 import { HistoryContainer, HistoryHeader, HistoryList, Status } from "./styles";
 import { CyclesContext } from "../../contexts/CyclesContext";
+import { useNavigate } from "react-router-dom";
 
 export function History() {
   const { cycles } = useContext(CyclesContext)
+  const navigate = useNavigate()
 
   function cleanHistoryCycles() {
     localStorage.removeItem('@ignite-timer:cycles-state-1.0.0')
+    navigate(0)
   }
 
   return (
