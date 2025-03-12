@@ -9,7 +9,6 @@ export function History() {
 
   function cleanHistoryCycles() {
     localStorage.removeItem('@ignite-timer:cycles-state-1.0.0')
-    window.location.reload()
   }
 
   return (
